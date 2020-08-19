@@ -1,0 +1,26 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Emain Domain List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Domain Name</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let emailDomainName of emailDomain | async">
+        <td>{{emailDomainName.domainName}}</td>
+
+        <td><button (click)="deleteDomainName(emailDomainName.id)" class="btn btn-danger">Delete</button>
+          <button (click)="updateDomainName(emailDomainName.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+          <button (click)="domainNameDetails(emailDomainName.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

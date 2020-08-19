@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  currentYear: number = new Date().getFullYear();
   title = 'vehicle-client-mng-ui';
 }
