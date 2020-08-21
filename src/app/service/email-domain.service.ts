@@ -25,8 +25,11 @@ export class EmailDomainService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  deleteDomain(id: number): Observable<any>{
+  deleteDomain(id: number): Observable<any> {
     return  this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
+  updateDomain(id: number, value: any): Observable<object> {
+    return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
 }

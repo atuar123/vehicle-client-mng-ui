@@ -28,6 +28,7 @@ export class EmailDomainListComponent implements OnInit {
   }
 
   updateDomainName(id: number) {
+    this.router.navigate(['update', id]);
   }
 
   deleteDomainName(id: number) {
