@@ -11,7 +11,8 @@ import {Router} from '@angular/router';
 })
 export class EmailDomainListComponent implements OnInit {
 
-  emailDomain: Observable<EmailDomain[]>;
+  emailDomain: EmailDomain[] = [];
+
   constructor(private emailDomainService: EmailDomainService, private router: Router) { }
 
   ngOnInit() {
@@ -19,16 +20,29 @@ export class EmailDomainListComponent implements OnInit {
   }
 
   loadData() {
-    this.emailDomain = this.emailDomainService.getDomainList();
+    this.emailDomainService.getDomains().subscribe(
+      (data: any) => {
+        this.emailDomain = data.content;
+        console.log(this.emailDomain);
+      });
   }
 
   updateDomainName(id: number) {
   }
 
   deleteDomainName(id: number) {
+    this.emailDomainService.deleteDomain(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.loadData();
+        },
+        error => console.log(error)
+      );
   }
 
   domainNameDetails(id: number) {
+    this.router.navigate(['details', id]);
   }
 
 }
