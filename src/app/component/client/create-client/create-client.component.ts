@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ClientService} from '../../../service/client.service';
+import {Client} from '../../../model/client';
 
 @Component({
   selector: 'app-create-client',
@@ -8,9 +10,10 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class CreateClientComponent implements OnInit {
 
-  constructor() { }
-
+  client: Client = new Client();
   submitted = false;
+
+  constructor(private clientService: ClientService) { }
 
   professions = [
     {id: 1, name: 'Teacher'},
@@ -37,8 +40,23 @@ export class CreateClientComponent implements OnInit {
   }
 
   saveClient() {
+    this.client = new Client();
+    this.client.customerName = this.ClientName.value;
+    this.client.companyName = this.CompanyName.value;
+    this.client.profession = this.Profession.value;
+    this.client.address = this.Address.value;
+    this.client.areaName = this.Address.value;
+    this.client.divisionName = this.DivisionName.value;
+    this.client.contactNo = this.ContactNo.value;
+    this.client.emailAddress = this.EmailAddress.value;
+    this.submitted = true;
+    this.save();
   }
-
+  save() {
+    this.clientService.createClient(this.client)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.client = new Client();
+  }
   get ClientName() {
     return this.clientForm.get('customerName');
   }
@@ -66,5 +84,7 @@ export class CreateClientComponent implements OnInit {
   }
 
   addClientForm() {
+    this.submitted = false;
+    this.clientForm.reset();
   }
 }

@@ -54,7 +54,7 @@
         <div class="form-group">
           <label for="areaName">Area Name</label>
           <input type="text" class="form-control"  formControlName="areaName" id="areaName" data-toggle="tooltip"
-                 data-placement="right" title="Enter your address" >
+                 data-placement="right" title="Enter your area name" >
           <div class="alert alert-danger" *ngIf = "(AreaName.touched) && (AreaName.invalid)"
                style="margin-top: 5px;">
             <span *ngIf="AreaName.errors.required">Area Name is Required</span>
@@ -69,19 +69,19 @@
                  data-placement="right" title="Enter your address" >
           <div class="alert alert-danger" *ngIf = "(DivisionName.touched) && (DivisionName.invalid)"
                style="margin-top: 5px;">
-            <span *ngIf="DivisionName.errors.required">Area Name is Required</span>
+            <span *ngIf="DivisionName.errors.required">Division Name is Required</span>
             <span *ngIf = "DivisionName.errors.minlength">
                         MinLength Error
                     </span>
           </div>
         </div>
         <div class="form-group">
-          <label for="contactNo">Area Name</label>
+          <label for="contactNo">Contact No.</label>
           <input type="text" class="form-control"  formControlName="contactNo" id="contactNo" data-toggle="tooltip"
-                 data-placement="right" title="Enter your address" >
+                 data-placement="right" title="Enter your contact number" >
           <div class="alert alert-danger" *ngIf = "(ContactNo.touched) && (ContactNo.invalid)"
                style="margin-top: 5px;">
-            <span *ngIf="ContactNo.errors.required">Area Name is Required</span>
+            <span *ngIf="ContactNo.errors.required">Contact Number is Required</span>
             <span *ngIf = "ContactNo.errors.minlength">
                         MinLength Error
                     </span>
@@ -100,7 +100,7 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" [disabled]="!clientForm.valid" class="btn btn-success">Submit</button>
       </form>
     </div>
   </div>
