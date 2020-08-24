@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {EmailDomain} from '../../model/email-domain';
+import {EmailDomain} from '../../../model/email-domain';
 import {ActivatedRoute, Router} from '@angular/router';
-import {EmailDomainService} from '../../service/email-domain.service';
+import {EmailDomainService} from '../../../service/email-domain.service';
 
 @Component({
   selector: 'app-email-domain-details',

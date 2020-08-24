@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {EmailDomain} from '../../model/email-domain';
-import {EmailDomainService} from '../../service/email-domain.service';
+import {EmailDomain} from '../../../model/email-domain';
+import {EmailDomainService} from '../../../service/email-domain.service';
 import {Router} from '@angular/router';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-create-email-domain',
@@ -9,10 +10,14 @@ import {Router} from '@angular/router';
   styleUrls: ['./create-email-domain.component.css']
 })
 export class CreateEmailDomainComponent implements OnInit {
+  constructor(private emailDomainService: EmailDomainService, private router: Router) { }
 
   emailDomain: EmailDomain = new EmailDomain();
   submitted = false;
-  constructor(private emailDomainService: EmailDomainService, private router: Router) { }
+
+  domainNameForm = new FormGroup({
+    domainName: new FormControl('' , [Validators.required , Validators.minLength(5) ] ),
+  });
 
   ngOnInit(): void {
   }

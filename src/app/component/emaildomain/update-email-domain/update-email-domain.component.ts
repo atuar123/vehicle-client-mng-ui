@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {EmailDomain} from '../../model/email-domain';
-import {EmailDomainService} from '../../service/email-domain.service';
+import {EmailDomain} from '../../../model/email-domain';
+import {EmailDomainService} from '../../../service/email-domain.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
