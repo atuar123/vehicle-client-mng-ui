@@ -1,1 +1,118 @@
-<p>create-client works!</p>
+
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4" >
+    <div [hidden]="submitted" style="width: 400px;">
+      <form [formGroup]="clientForm" (ngSubmit)="saveClient()">
+        <div class="form-group">
+          <label for="customerName">Client Name</label>
+          <input type="text" class="form-control"  formControlName="customerName" id="customerName" data-toggle="tooltip"
+                 data-placement="right" title="Enter Client Name" >
+          <div class="alert alert-danger" *ngIf = "(ClientName.touched) && (ClientName.invalid)"
+               style="margin-top: 5px;">
+            <span *ngIf="ClientName.errors.required">Client Name is Required</span>
+            <span *ngIf = "ClientName.errors.minlength">
+                        MinLength Error
+                    </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="companyName">Company Name</label>
+          <input type="text" class="form-control"  formControlName="companyName" id="companyName" data-toggle="tooltip"
+                 data-placement="right" title="Enter Company Name" >
+          <div class="alert alert-danger" *ngIf = "(CompanyName.touched) && (CompanyName.invalid)"
+               style="margin-top: 5px;">
+            <span *ngIf="CompanyName.errors.required">Company Name is Required</span>
+            <span *ngIf = "CompanyName.errors.minlength">
+                        MinLength Error
+                    </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="profession">Client Profession</label>
+          <select id="profession" class="form-control" formControlName="profession" data-toggle="tooltip"
+                  data-placement="right" title="Select Profession">
+            <option value="null">--Select Profession--</option>
+            <option *ngFor="let profession of professions"
+                    [value]="profession.id">
+              {{ profession.name }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="address">Address Name</label>
+          <input type="text" class="form-control"  formControlName="address" id="address" data-toggle="tooltip"
+                 data-placement="right" title="Enter your address" >
+          <div class="alert alert-danger" *ngIf = "(Address.touched) && (Address.invalid)"
+               style="margin-top: 5px;">
+            <span *ngIf="Address.errors.required">Address is Required</span>
+            <span *ngIf = "Address.errors.minlength">
+                        MinLength Error
+                    </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="areaName">Area Name</label>
+          <input type="text" class="form-control"  formControlName="areaName" id="areaName" data-toggle="tooltip"
+                 data-placement="right" title="Enter your address" >
+          <div class="alert alert-danger" *ngIf = "(AreaName.touched) && (AreaName.invalid)"
+               style="margin-top: 5px;">
+            <span *ngIf="AreaName.errors.required">Area Name is Required</span>
+            <span *ngIf = "AreaName.errors.minlength">
+                        MinLength Error
+                    </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="divisionName">Division Name</label>
+          <input type="text" class="form-control"  formControlName="divisionName" id="divisionName" data-toggle="tooltip"
+                 data-placement="right" title="Enter your address" >
+          <div class="alert alert-danger" *ngIf = "(DivisionName.touched) && (DivisionName.invalid)"
+               style="margin-top: 5px;">
+            <span *ngIf="DivisionName.errors.required">Area Name is Required</span>
+            <span *ngIf = "DivisionName.errors.minlength">
+                        MinLength Error
+                    </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="contactNo">Area Name</label>
+          <input type="text" class="form-control"  formControlName="contactNo" id="contactNo" data-toggle="tooltip"
+                 data-placement="right" title="Enter your address" >
+          <div class="alert alert-danger" *ngIf = "(ContactNo.touched) && (ContactNo.invalid)"
+               style="margin-top: 5px;">
+            <span *ngIf="ContactNo.errors.required">Area Name is Required</span>
+            <span *ngIf = "ContactNo.errors.minlength">
+                        MinLength Error
+                    </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="emailAddress">Client Email</label>
+          <input id="emailAddress" type="text" class="form-control" formControlName="emailAddress"
+                 data-toggle="tooltip" data-placement="right" title="Enter Student Email">
+          <div class="alert alert-danger" *ngIf = "(EmailAddress.touched) && (EmailAddress.invalid)"
+               style="margin-top: 5px;">
+            <span *ngIf="EmailAddress.errors.required">Client Email is Required</span>
+            <span *ngIf = "EmailAddress.errors.email">
+                        Invalid Email Format
+                    </span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div [hidden]="!submitted">
+      <h4>Client Added SuccessFully!</h4>
+      <button (click)="addClientForm()" class='btn btn-primary'>Add More Client</button>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>

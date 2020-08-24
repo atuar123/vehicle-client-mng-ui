@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CreateEmailDomainComponent } from './component/emaildomain/create-email-domain/create-email-domain.component';
 import { EmailDomainListComponent } from './component/emaildomain/email-domain-list/email-domain-list.component';
 import { EmailDomainDetailsComponent } from './component/emaildomain/email-domain-details/email-domain-details.component';
@@ -28,7 +28,8 @@ import { ClientListComponent } from './component/client/client-list/client-list.
     HttpClientModule,
     RouterModule.forRoot([]),
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

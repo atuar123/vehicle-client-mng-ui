@@ -5,6 +5,8 @@ import {EmailDomainListComponent} from './component/emaildomain/email-domain-lis
 import {CreateEmailDomainComponent} from './component/emaildomain/create-email-domain/create-email-domain.component';
 import {EmailDomainDetailsComponent} from './component/emaildomain/email-domain-details/email-domain-details.component';
 import {UpdateEmailDomainComponent} from './component/emaildomain/update-email-domain/update-email-domain.component';
+import {ClientListComponent} from './component/client/client-list/client-list.component';
+import {CreateClientComponent} from './component/client/create-client/create-client.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/domainList', pathMatch: 'full' },
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'add', component: CreateEmailDomainComponent },
   { path: 'update/:id', component: UpdateEmailDomainComponent },
   { path: 'details/:id', component: EmailDomainDetailsComponent },
+  { path: 'view-client', component: ClientListComponent },
+  { path: 'add-client', component: CreateClientComponent },
 ];
 
 @NgModule({
