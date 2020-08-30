@@ -15,10 +15,6 @@ export class CreateEmailDomainComponent implements OnInit {
   emailDomain: EmailDomain = new EmailDomain();
   submitted = false;
 
-  domainNameForm = new FormGroup({
-    domainName: new FormControl('' , [Validators.required , Validators.minLength(5) ] ),
-  });
-
   ngOnInit(): void {
   }
 

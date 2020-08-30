@@ -46,9 +46,7 @@
           <div class="alert alert-danger" *ngIf = "(Address.touched) && (Address.invalid)"
                style="margin-top: 5px;">
             <span *ngIf="Address.errors.required">Address is Required</span>
-            <span *ngIf = "Address.errors.minlength">
-                        MinLength Error
-                    </span>
+            <span *ngIf = "Address.errors.minlength">MinLength Error</span>
           </div>
         </div>
         <div class="form-group">
